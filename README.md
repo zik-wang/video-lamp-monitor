@@ -38,7 +38,7 @@ python -m venv .venv
 有对应机位的校准时使用 `--profile`。校准目录包含参考图、灯位框、外观样本和颜色映射。首次在新机位运行时，可显式指定兼容 OpenAI Chat Completions 接口的视觉模型根地址和模型 ID：
 
 ```powershell
-.\.venv\Scripts\python.exe -B monitor.py --video input.mp4 --out runs/new-camera --endpoint http://127.0.0.1:8000 --model <YOUR_VISION_MODEL_ID>
+.\.venv\Scripts\python.exe -B monitor.py --video input.mp4 --out runs/new-camera --endpoint http://127.0.0.1:8000 --model "your-vision-model-id"
 ```
 
 该模式会把局部画面发送到指定服务，保留模型响应供复核。检查 `lamp-inventory.jpg` 中的编号和框选结果，并用 `color-calibration.json` 核对颜色依据。需要补充已确认颜色时，可在校准目录的 `profile.json` 中填写 `color_overrides`，形如 `{"L01_1": "red", "L01_2": "green"}`，其中后缀对应外观样本编号。
